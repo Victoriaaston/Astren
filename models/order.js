@@ -10,6 +10,10 @@ const lineItemSchema = new Schema({
   timestamps: true
 });
 
+lineItemSchema.virtual('extPrice').get(function () {
+    return this.qty * this.item.price;
+  });
+
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     lineItems: [lineItemSchema],
