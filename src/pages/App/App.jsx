@@ -1,6 +1,7 @@
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
+import HomePage from "../HomePage/HomePage"
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -20,6 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/orders/new" element={<NewOrderPage />} />
             <Route path="/orders" element={<OrderHistoryPage />} />
+            <Route path="/home" element={<HomePage />} />
           </Routes>
         </>
         :
