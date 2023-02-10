@@ -12,7 +12,16 @@ export default function NewOrderPage() {
         getItems();
       }, []);
 
-    return(
-        <h1> New Order Page </h1>
-    )
+      return (
+        <>
+          <h1>New Order Page</h1>
+          {items.map(item => (
+            <div key={item._id}>
+              <img src={item.photo}/>
+              <p>{item.name}</p>
+              <p>{item.price}</p>
+            </div>
+          ))}
+        </>
+      )
 }
