@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as itemsAPI from "../../utilities/items-api"
+import './NewOrderPage.css'
 
 export default function NewOrderPage() {
     const [items, setItems] = useState([])
@@ -14,14 +15,16 @@ export default function NewOrderPage() {
 
       return (
         <>
-          <h1>New Order Page</h1>
-          {items.map(item => (
-            <div key={item._id}>
-              <img src={item.photo}/>
-              <p>{item.name}</p>
-              <p>{item.price}</p>
-            </div>
-          ))}
+          <h1>Shop All</h1>
+          <div className="items-container">
+            {items.map(item => (
+              <div className="item-card" key={item._id}>
+                <img src={item.photo}/>
+                <p>{item.name}</p>
+                <p>{item.price}</p>
+              </div>
+            ))}
+          </div>
         </>
       )
 }
