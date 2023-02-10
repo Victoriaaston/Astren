@@ -4,10 +4,11 @@
     align-items: center;
     padding: 50px;
     background-image: url('https://cdn2.vectorstock.com/i/1000x1000/74/31/creative-minimalist-hand-painted-abstract-arts-vector-32707431.jpg');
-    background-size: 100% 120%;
+    background-size: 112% 120%;
     background-position: center;
     color: white;
     margin: 7%;
+    border: 2px solid lightgray;
 }
 
 .home-page-title {
@@ -34,4 +35,16 @@
     text-align: center;
     border-radius: 8px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 950px) {
+    .home-page {
+        margin: 10%;
+    }
+}
+
+@media (max-width: 665px) {
+    .home-page {
+        margin: 2%;
+    }
 }
