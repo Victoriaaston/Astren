@@ -40,11 +40,13 @@
 @media (min-width: 950px) {
     .home-page {
         margin: 10%;
+        margin-top: 50px;
     }
 }
 
 @media (max-width: 665px) {
     .home-page {
         margin: 2%;
+        margin-top: 25px;
     }
 }
