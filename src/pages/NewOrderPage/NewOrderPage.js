@@ -22,6 +22,7 @@ export default function NewOrderPage() {
                 <img src={item.photo}/>
                 <p>{item.name}</p>
                 <p>{item.price}</p>
+                <button> Add to Cart </button>
               </div>
             ))}
           </div>
