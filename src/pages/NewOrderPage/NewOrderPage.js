@@ -3,10 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as itemsAPI from "../../utilities/items-api"
 import * as ordersAPI from "../../utilities/orders-api"
 import './NewOrderPage.css'
+import CartPage from "../CartPage/CartPage"
 
-export default function NewOrderPage() {
+export default function NewOrderPage({ cart, setCart }) {
   const [items, setItems] = useState([])
-  const [cart, setCart] = useState(null)
 
    // Obtain a ref object
   const navigate = useNavigate([])
@@ -17,20 +17,21 @@ export default function NewOrderPage() {
       setItems(items);
     }
     getItems();
+
+    async function getCart() {
+      const cart = await ordersAPI.getCart()
+      setCart(cart)
+    }
+    getCart()
   }, []);
 
-  async function getCart() {
-    const cart = await ordersAPI.getCart()
-    setCart(cart)
-  }
-  getCart()
 
   /*--- Event Handlers --- */
   async function handleAddToOrder(itemId) {
-    console.log('%cBefore API request adding to order', "color: red")
     const cart = await ordersAPI.addItemToCart(itemId)
-    console.log('%cAfter API request adding to order', "color: blue")
     setCart(cart)
+    console.log("added to cart")
+    console.log(cart + "this is the new cart")
   }
   
 

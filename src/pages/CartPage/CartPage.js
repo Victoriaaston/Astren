@@ -1,25 +1,21 @@
 import React from 'react';
+import './CartPage.css';
 
-export default function CartPage({ cart }) {
+export default function CartPage({ cart, setCart }) {
+  console.log(cart + "This is the cart");
 
-
-    return (
-      <div>
-        <h1>This is where you will view the cart</h1>
-        {cart ? (
-          <div>
-            <p>Cart items:</p>
-            {cart.lineItems.map((lineItem, index) => (
-              <div key={index}>
-                <p>
-                  {lineItem.item.name}: {lineItem.qty}
-                </p>
-              </div>
-            ))}
+  return (
+    <div className="items-container">
+      {cart ? (
+        cart.lineItems.map((lineItem, index) => (
+          <div className="item-card" key={index}>
+            <img src={lineItem.item.photo} />
+            <p>{lineItem.item.name}: {lineItem.qty}</p>
           </div>
-        ) : (
-          <p>No items in the cart</p>
-        )}
-      </div>
-    );
-  }
+        ))
+      ) : (
+        <p>No items in the cart</p>
+      )}
+    </div>
+  );
+}
