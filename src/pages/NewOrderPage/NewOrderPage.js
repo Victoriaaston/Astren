@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import * as itemsAPI from "../../utilities/items-api"
@@ -32,8 +30,6 @@ export default function NewOrderPage({ cart, setCart }) {
   async function handleAddToOrder(itemId) {
     const cart = await ordersAPI.addItemToCart(itemId)
     setCart(cart)
-    console.log("added to cart")
-    console.log(cart + "this is the new cart")
   }
   
 

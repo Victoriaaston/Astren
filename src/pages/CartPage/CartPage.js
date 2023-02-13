@@ -2,7 +2,6 @@ import React from 'react';
 import './CartPage.css';
 
 export default function CartPage({ cart, setCart }) {
-  console.log(cart + "This is the cart");
 
   return (
     <div className="items-container">
