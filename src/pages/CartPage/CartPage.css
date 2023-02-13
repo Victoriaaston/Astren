@@ -30,3 +30,9 @@
     }
   }
   
+  .qty-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+}
+

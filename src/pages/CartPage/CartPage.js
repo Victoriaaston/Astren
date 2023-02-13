@@ -23,8 +23,10 @@ export default function CartPage({ cart, setCart }) {
                         <img src={lineItem.item.photo} />
                         <p>{lineItem.item.name}: {lineItem.qty}</p>
                         <button onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
-                        <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
-                        <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}>+</button>
+                        <div className="qty-controls">
+                            <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
+                            <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}>+</button>
+                        </div>
                     </div>
                 ))
             ) : (
