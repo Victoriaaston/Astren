@@ -31,12 +31,6 @@ export default function NewOrderPage({ cart, setCart }) {
     const cart = await ordersAPI.addItemToCart(itemId)
     setCart(cart)
   }
-  
-
-  async function handleChangeQty(itemId, newQty) {
-    const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
-    setCart(updatedCart);
-  }
 
   async function handleCheckout() {
     await ordersAPI.checkout()

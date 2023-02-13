@@ -10,6 +10,11 @@ export default function CartPage({ cart, setCart }) {
         setCart(cart)
     }
 
+    async function handleChangeQty(itemId, newQty) {
+        const updatedCart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+        setCart(updatedCart);
+      }      
+
     return (
         <div className="items-container">
             {cart ? (
@@ -18,6 +23,8 @@ export default function CartPage({ cart, setCart }) {
                         <img src={lineItem.item.photo} />
                         <p>{lineItem.item.name}: {lineItem.qty}</p>
                         <button onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
+                        <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
+                        <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}>+</button>
                     </div>
                 ))
             ) : (
