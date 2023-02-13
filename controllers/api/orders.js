@@ -38,7 +38,7 @@ async function checkout(req, res) {
 
 async function deleteItem(req, res) {
     const cart = await Order.getCart(req.user._id);
-    await cart.removeItem(req.params.id);
+    await cart.deleteItemFromCart(req.params.id);
     await cart.save();
     res.json(cart);
   }

@@ -59,7 +59,7 @@ orderSchema.methods.deleteItemFromCart = async function (itemId) {
     const cart = this;
     const lineItem = cart.lineItems.find(lineItem => lineItem.item._id.equals(itemId));
     if (lineItem) {
-      lineItem.qty -= 1;
+      lineItem.remove()
     } else {
       const item = await mongoose.model('Item').findById(itemId);
       cart.lineItems.pop({ item });
