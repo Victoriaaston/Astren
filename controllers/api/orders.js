@@ -61,7 +61,7 @@ async function checkout(req, res) {
     ],
     mode: 'payment',
     success_url: 'http://localhost:3000/orders/success',
-    cancel_url: 'http://localhost:4242/cancel',
+    cancel_url: 'http://localhost:3000/orders/new',
   });
 
   res.status(200).send(session.url);
