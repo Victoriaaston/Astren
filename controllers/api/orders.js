@@ -1,11 +1,13 @@
 const Order = require('../../models/order');
+const stripe = require('stripe')('sk_test_51MbSmyCwSUDU3KMA9imLUlMWgsYEc2fhr44p6M6Uf1gdYsJTUJdRRCGRCSSKPxQfiqSGpT4BvJLkxzlI5ac6HmJE00GZcNEhRA')
 
 module.exports = {
   cart,
   addToCart,
   setItemQtyInCart,
   checkout,
-  delete: deleteItem
+  delete: deleteItem,
+  checkout
 };
 
 // A cart is the unpaid order for a user
@@ -24,7 +26,7 @@ async function addToCart(req, res) {
 // Updates an item's qty in the cart
 async function setItemQtyInCart(req, res) {
   const cart = await Order.getCart(req.user._id);
-  await cart.setItemQty(req.body.itemId, req.body.newQty); 
+  await cart.setItemQty(req.body.itemId, req.body.newQty);
   res.json(cart);
 }
 
@@ -32,14 +34,36 @@ async function setItemQtyInCart(req, res) {
 async function checkout(req, res) {
   const cart = await Order.getCart(req.user._id);
   cart.isPaid = true;
-  await cart.save(); 
+  await cart.save();
   res.json(cart);
 }
 
 async function deleteItem(req, res) {
-    const cart = await Order.getCart(req.user._id);
-    await cart.deleteItemFromCart(req.params.id);
-    await cart.save();
-    res.json(cart);
-  }
-  
+  const cart = await Order.getCart(req.user._id);
+  await cart.deleteItemFromCart(req.params.id);
+  await cart.save();
+  res.json(cart);
+}
+
+async function checkout(req, res) {
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        price_data: {
+          currency: 'usd',
+          product_data: {
+            name: 'T-shirt',
+          },
+          unit_amount: 2000,
+        },
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: 'http://localhost:4242/success',
+    cancel_url: 'http://localhost:4242/cancel',
+  });
+
+  res.status(200).send(session.url);
+
+};

@@ -12,6 +12,8 @@ router.post('/cart/checkout', ordersCtrl.checkout);
 router.put('/cart/qty', ordersCtrl.setItemQtyInCart);
 // DELETE /api/cart/:id
 router.delete('/cart/items/:id', ordersCtrl.delete);
+// POST checkout using stripe api
+router.post('/create-checkout-session', ordersCtrl.checkout)
 
 
 

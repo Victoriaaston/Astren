@@ -43,7 +43,7 @@
     width: 33.33%;
   }
   
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 850px) {
     .items-container > .item-card:nth-last-child(-n+2) {
       width: 30%;
     }

@@ -31,12 +31,6 @@ export default function NewOrderPage({ cart, setCart }) {
     setCart(cart)
   }
 
-  async function handleCheckout() {
-    await ordersAPI.checkout()
-    navigate('/orders')
-  }
-
-
   return (
     <>
       <h1>Shop All</h1>
