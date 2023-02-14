@@ -1,6 +1,7 @@
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
+import PaymentSuccessPage from '../PaymentSuccessPage/PaymentSuccessPage';
 import HomePage from "../HomePage/HomePage"
 import { useState } from "react";
 import { Routes, Route } from 'react-router-dom';
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/orders/new" element={<NewOrderPage cart={cart} setCart={setCart} />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />}  />
+            <Route path="/orders/success" element={<PaymentSuccessPage />} />
           </Routes>
         </>
         :
