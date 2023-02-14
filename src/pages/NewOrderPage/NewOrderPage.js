@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import * as itemsAPI from "../../utilities/items-api"
 import * as ordersAPI from "../../utilities/orders-api"
 import './NewOrderPage.css'
-import CartPage from "../CartPage/CartPage"
 
 export default function NewOrderPage({ cart, setCart }) {
   const [items, setItems] = useState([])
