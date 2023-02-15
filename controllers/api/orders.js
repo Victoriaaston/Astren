@@ -12,17 +12,17 @@ module.exports = {
 
 // A cart is the unpaid order for a user
 async function cart(req, res) {
-  const cart = await Order.getCart(req.user._id)
-  res.json(cart)
+  if (req.user) {
+    const cart = await Order.getCart(req.user._id)
+    res.json(cart)
+  }
 }
 
 // Add an item to the cart
 async function addToCart(req, res) {
-  if (user) {
   const cart = await Order.getCart(req.user._id)
   await cart.addItemToCart(req.params.id)
   res.json(cart)
-  }
 }
 
 // Updates an item's qty in the cart
