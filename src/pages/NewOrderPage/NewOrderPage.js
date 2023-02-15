@@ -40,10 +40,11 @@ export default function NewOrderPage({ cart, setCart }) {
             <img src={item.photo} />
             <p>{item.name}</p>
             <p>{item.price}</p>
-            <button onClick={() => handleAddToOrder(item._id)}> Add to Cart </button>
+            <button id="add" onClick={() => handleAddToOrder(item._id)}> Add to Cart </button>
           </div>
         ))}
       </div>
     </>
   )
+
 }

@@ -82,3 +82,8 @@
     width: 100%;
   }
 }
+
+#add {
+  background-color: rgba(27, 180, 27, 0.777);
+  border-radius: 5px;;
+}
