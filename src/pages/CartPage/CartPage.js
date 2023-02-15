@@ -25,9 +25,10 @@ export default function CartPage({ cart, setCart }) {
     return (
         <div>
             <div id="cart-items-container">
+                <h1> View Cart </h1>
                 {cart ? (
                     cart.lineItems.map((lineItem, index) => (
-                        <div id={`item-card-${index}`} key={index}>
+                        <div id={`cart-block-${index}`} className="item-card" key={index}>
                             <img src={lineItem.item.photo} />
                             <p id={`item-name-${index}`}>{lineItem.item.name}: {lineItem.qty}</p>
                             <button id={`delete-item-${index}`} onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>

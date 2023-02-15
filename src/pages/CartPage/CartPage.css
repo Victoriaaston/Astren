@@ -2,7 +2,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 10px;
   }
   
   .item-card {
@@ -34,4 +33,5 @@
     display: flex;
     justify-content: center;
     margin-top: 2px;
+    margin-bottom: 20px;
 }
