@@ -3,8 +3,7 @@ import * as ordersAPI from "../../utilities/orders-api"
 import { useNavigate } from 'react-router-dom';
 
 export default function CartPage({ cart, setCart }) {
-
-    const navigate = useNavigate([])
+    const navigate = useNavigate([]);
 
     /*--- Event Handlers --- */
     async function handleDeleteItem(itemId) {
@@ -22,6 +21,8 @@ export default function CartPage({ cart, setCart }) {
         window.location.href = `${checkout}`
     }
 
+    const total = cart ? cart.lineItems.reduce((accumulator, lineItem) => accumulator + lineItem.item.price * lineItem.qty, 0) : 0;
+
     return (
         <div>
             <div id="all">
@@ -31,6 +32,7 @@ export default function CartPage({ cart, setCart }) {
                         <div id={`cart-block-${index}`} className="product" key={index}>
                             <img src={lineItem.item.photo} />
                             <p id={`item-name-${index}`}>{lineItem.item.name}: {lineItem.qty}</p>
+                            <div>${(lineItem.item.price)}</div>
                             <button id={`delete-item-${index}`} onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
                             <div id={`qty-controls-${index}`} className="qty-controls">
                                 <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
@@ -41,6 +43,7 @@ export default function CartPage({ cart, setCart }) {
                 ) : (
                     <p>No items in the cart</p>
                 )}
+                <div id="total-price">Total: ${total.toFixed(2)}</div>
             </div>
             <button id="checkout-btn" onClick={handleCheckout}>Checkout</button>
         </div>

@@ -48,24 +48,27 @@ async function deleteItem(req, res) {
 }
 
 async function checkout(req, res) {
+  const cart = await Order.getCart();
+  console.log(cart)
   const session = await stripe.checkout.sessions.create({
-    line_items: [
-      {
+    line_items: cart.lineItems.map(lineItem => {
+      return {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: 'T-shirt',
+            name: lineItem.item.name,
           },
-          unit_amount: 2000,
+          unit_amount: lineItem.item.price * 100,
         },
-        quantity: 1,
-      },
-    ],
+        quantity: lineItem.qty, //I dont have quantity in mt schema 
+      };
+    }),
     mode: 'payment',
     success_url: 'http://localhost:3000/orders/success',
     cancel_url: 'http://localhost:3000/orders/new',
   });
 
   res.status(200).send(session.url);
-
 };
+
+   

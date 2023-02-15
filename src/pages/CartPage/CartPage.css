@@ -1,5 +1,3 @@
-/* CartPage.css */
-
 .product {
   flex-grow: 1;
   width: 42%;
@@ -36,19 +34,13 @@
   margin: 0.5rem 0;
 }
 
-.product:last-child {
-  margin-right: auto;
-}
-
 @media screen and (min-width: 850px) {
   .product {
     width: 42%;
     font-size: 1rem;
   }
-  .product:last-child {
-    margin-right: 0;
-  }
 }
+
 
 @media (max-width: 600px) {
   .product {

@@ -40,7 +40,7 @@ orderSchema.statics.getCart = function (userId) {
     { user: userId, isPaid: false },
     { user: userId },
     { upsert: true, new: true }
-  );
+  ).populate('lineItems');
 };
 
 orderSchema.methods.addItemToCart = async function (itemId) {
