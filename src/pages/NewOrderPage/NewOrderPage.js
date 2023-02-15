@@ -7,7 +7,7 @@ import './NewOrderPage.css'
 export default function NewOrderPage({ cart, setCart }) {
   const [items, setItems] = useState([])
 
-   // Obtain a ref object
+  // Obtain a ref object
   const navigate = useNavigate([])
 
   useEffect(function () {
@@ -34,9 +34,9 @@ export default function NewOrderPage({ cart, setCart }) {
   return (
     <>
       <h1>Shop All</h1>
-      <div className="items-container">
+      <div className="items-container" id="items-container">
         {items.map(item => (
-          <div className="item-card" key={item._id}>
+          <div className="item-card" id={`item-card-${item._id}`} key={item._id}>
             <img src={item.photo} />
             <p>{item.name}</p>
             <p>{item.price}</p>

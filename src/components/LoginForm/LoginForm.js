@@ -1,9 +1,7 @@
-// LoginForm.jsx
-
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ setUser, id }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
@@ -31,13 +29,13 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div>
-      <div className="form-container" onSubmit={handleSubmit}>
+      <div className="form-container" id={id} onSubmit={handleSubmit}>
         <form autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button type="submit">LOG IN</button>
+          <label htmlFor={`${id}-email-input`}>Email</label>
+          <input type="text" id={`${id}-email-input`} name="email" value={credentials.email} onChange={handleChange} required />
+          <label htmlFor={`${id}-password-input`}>Password</label>
+          <input type="password" id={`${id}-password-input`} name="password" value={credentials.password} onChange={handleChange} required />
+          <button type="submit" id={`${id}-submit-button`}>LOG IN</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>

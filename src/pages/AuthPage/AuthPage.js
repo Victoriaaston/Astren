@@ -5,10 +5,10 @@ import "./AuthPage.css"
 export default function AuthPage({setUser}) {
     return(
         <main className="auth-page">
-            <h1> Auth Page </h1>
+            <h1 id="auth-page-title"> Auth Page </h1>
             <div className="auth-forms">
-                <SignUpForm setUser={setUser} />
-                <LoginForm setUser={setUser}/>
+                <SignUpForm id="signup-form" setUser={setUser} />
+                <LoginForm id="login-form" setUser={setUser}/>
             </div>
         </main>
     )

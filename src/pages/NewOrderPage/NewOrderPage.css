@@ -1,4 +1,4 @@
-.items-container {
+#items-container {
   display: flex;
   flex-wrap: wrap;
   padding: 25px;
@@ -35,14 +35,15 @@
   margin: 0.5rem 0;
 }
 
-.items-container:after {
+#items-container:after {
   content: "";
   flex-grow: 9999999;
   min-width: 33%;
 }
 
 @media screen and (min-width: 850px) {
-  .items-container > .item-card:nth-last-child(-n+2) {
+  #items-container > .item-card:nth-last-child(-n+2) {
     width: 30%;
   }
 }
+
