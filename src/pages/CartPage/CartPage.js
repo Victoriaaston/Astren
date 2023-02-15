@@ -32,7 +32,7 @@ export default function CartPage({ cart, setCart }) {
                         <div id={`cart-block-${index}`} className="product" key={index}>
                             <img src={lineItem.item.photo} />
                             <p id={`item-name-${index}`}>{lineItem.item.name}: {lineItem.qty}</p>
-                            <div>${(lineItem.item.price)}</div>
+                            <div>${(lineItem.item.price * lineItem.qty)}</div>
                             <button id={`delete-item-${index}`} onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
                             <div id={`qty-controls-${index}`} className="qty-controls">
                                 <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
