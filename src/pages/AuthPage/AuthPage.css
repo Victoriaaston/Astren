@@ -56,10 +56,6 @@
   color: red;
 }
 
-#login-form form label {
-  display: none;
-}
-
 #login-form-email-input,
 #login-form-password-input,
 #login-form-submit-button {
