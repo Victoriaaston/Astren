@@ -49,7 +49,6 @@ async function deleteItem(req, res) {
 
 async function checkout(req, res) {
   const cart = await Order.getCart();
-  console.log(cart)
   const session = await stripe.checkout.sessions.create({
     line_items: cart.lineItems.map(lineItem => {
       return {
@@ -60,7 +59,7 @@ async function checkout(req, res) {
           },
           unit_amount: lineItem.item.price * 100,
         },
-        quantity: lineItem.qty, //I dont have quantity in mt schema 
+        quantity: lineItem.qty, 
       };
     }),
     mode: 'payment',

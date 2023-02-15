@@ -47,3 +47,40 @@
     width: 42%;
   }
 }
+
+.cart-products {
+  width: 84%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.cart-summary {
+  width: 16%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: right;
+}
+
+#total-price {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+#checkout-btn {
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#total-checkout-container {
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
