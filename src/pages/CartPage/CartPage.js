@@ -1,4 +1,3 @@
-import React from 'react';
 import './CartPage.css';
 import * as ordersAPI from "../../utilities/orders-api"
 import { useNavigate } from 'react-router-dom';
@@ -25,14 +24,14 @@ export default function CartPage({ cart, setCart }) {
 
     return (
         <div>
-            <div className="items-container">
+            <div id="cart-items-container">
                 {cart ? (
                     cart.lineItems.map((lineItem, index) => (
-                        <div className="item-card" key={index}>
+                        <div id={`item-card-${index}`} key={index}>
                             <img src={lineItem.item.photo} />
-                            <p>{lineItem.item.name}: {lineItem.qty}</p>
-                            <button onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
-                            <div className="qty-controls">
+                            <p id={`item-name-${index}`}>{lineItem.item.name}: {lineItem.qty}</p>
+                            <button id={`delete-item-${index}`} onClick={() => handleDeleteItem(lineItem.item._id)}> Delete from cart</button>
+                            <div id={`qty-controls-${index}`} className="qty-controls">
                                 <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty - 1)}>-</button>
                                 <button onClick={() => handleChangeQty(lineItem.item._id, lineItem.qty + 1)}>+</button>
                             </div>
@@ -42,7 +41,7 @@ export default function CartPage({ cart, setCart }) {
                     <p>No items in the cart</p>
                 )}
             </div>
-            <button onClick={handleCheckout}>Checkout</button>
+            <button id="checkout-btn" onClick={handleCheckout}>Checkout</button>
         </div>
     );
 }
