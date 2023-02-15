@@ -19,7 +19,6 @@ export default function CartPage({ cart, setCart }) {
     }
 
     async function handleCheckout() {
-        console.log("hello world")
         const checkout = await ordersAPI.checkout();
         window.location.href = `${checkout}`
     }
