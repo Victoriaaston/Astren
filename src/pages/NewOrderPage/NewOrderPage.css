@@ -67,7 +67,7 @@ body {
 }
 
 #add {
-  background-color: #008489;
+  background-color: #96abae;
   border-radius: 5px;
   padding: 0.5rem 1rem;
   border: none;
@@ -78,7 +78,7 @@ body {
 }
 
 #add:hover {
-  background-color: #007f7a;
+  background-color: #738481;
 }
 
 @media screen and (min-width: 768px) {
