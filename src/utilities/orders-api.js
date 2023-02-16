@@ -10,9 +10,9 @@ export function getCart() {
 }
 
 // Add an item to the cart
-export function addItemToCart(itemId) {
+export function addItemToCart(itemId, user=localStorage.getItem("id")) {
   // Just send itemId for best security (no pricing)
-  return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST');
+  return sendRequest(`${BASE_URL}/cart/items/${itemId}`, 'POST', {user});
 }
 
 // Update the item's qty in the cart
@@ -38,4 +38,8 @@ export async function checkout() {
     console.error(error);
   }
 }
+
+// export async function checkout() {
+//   return sendRequest(`${BASE_URL}/cart/checkout`, 'POST')
+// }
    

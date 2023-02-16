@@ -20,9 +20,10 @@ async function cart(req, res) {
 
 // Add an item to the cart
 async function addToCart(req, res) {
-  const cart = await Order.getCart(req.user._id)
-  cart.addItemToCart(req.params.id)
-  console.log(cart.item)
+  console.log(req.body.user)
+  const cart = await Order.getCart(req.body.user)
+  await cart.addItemToCart(req.params.id)
+  console.log(cart)
   res.json(cart)
 }
 
@@ -34,12 +35,12 @@ async function setItemQtyInCart(req, res) {
 }
 
 // Update the cart's isPaid property to true
-async function checkout(req, res) {
-  const cart = await Order.getCart(req.user._id);
-  cart.isPaid = true;
-  await cart.save();
-  res.json(cart);
-}
+// async function checkout(req, res) {
+//   const cart = await Order.getCart(req.user._id);
+//   cart.isPaid = true;
+//   await cart.save();
+//   res.json(cart);
+// }
 
 async function deleteItem(req, res) {
   const cart = await Order.getCart(req.user._id);
@@ -49,11 +50,14 @@ async function deleteItem(req, res) {
 }
 
 async function checkout(req, res) {
-  console.log(req.user)
-  const cart = await Order.getCart(req.user);
+  console.log(req.body.user)
+  const cart = await Order.getCart(req.body.user);
+  cart.isPaid = true;
   console.log(cart)
-  const items = await cart.lineItems.map(lineItem => {
-    return {
+  await cart.save();
+  const tmp = []
+  await cart.lineItems.forEach(lineItem => {
+    tmp.push({
       price_data: {
         currency: 'usd',
         product_data: {
@@ -62,17 +66,17 @@ async function checkout(req, res) {
         unit_amount: lineItem.item.price * 100,
       },
       quantity: lineItem.qty, 
-    }
+    })
   })
-  console.log("hello World")
-  console.log(items)
+  console.log("these are the" + typeof [1, 2, 3])
   const session = await stripe.checkout.sessions.create({
-    line_items: items,
-    mode: 'payment',
+    payment_method_types: ['card'],
+    line_items: tmp,
     success_url: 'http://localhost:3000/orders/success',
     cancel_url: 'http://localhost:3000/orders/new',
-  })
-
+    mode: "payment",
+});
+  console.log("this is ther session url" + session.url)
   res.status(200).send(session.url);
 };
 
