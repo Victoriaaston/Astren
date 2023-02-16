@@ -1,59 +1,83 @@
 .auth-page {
   text-align: center;
+  background-color: #f7f7f7;
+  height: 100vh;
 }
 
 #auth-page-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .auth-forms {
   display: flex;
-  justify-content: space-around;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 6rem);
 }
 
 .form-container {
-  background-color: #f2f2f2;
-  border-radius: 5px;
-  padding: 20px;
-  width: 400px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 25rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .auth-forms {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form-container {
+    width: 90%;
+    margin: 1rem 0;
+  }
 }
 
 .form-container label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   text-align: left;
 }
 
 .form-container input[type="text"],
 .form-container input[type="email"],
 .form-container input[type="password"] {
-  border: 1px solid #ccc;
+  border: 1px solid #e0e0e0;
   border-radius: 4px;
   box-sizing: border-box;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
   width: 100%;
+  font-size: 1.2rem;
 }
 
 .form-container button[type="submit"] {
-  background-color: #4CAF50;
+  background-color: #96abae;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 10px 20px;
-  margin-top: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  font-size: 1.2rem;
+  transition: all 0.2s;
 }
 
 .form-container button[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #738481;
 }
 
 .error-message {
   color: red;
+  margin-top: 1rem;
 }
 
 #login-form-email-input,
@@ -67,8 +91,9 @@
 #password-input {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
   text-align: left;
+  font-size: 1.2rem;
 }
 
 #signup-form form label {
@@ -81,8 +106,9 @@
 #signup-form-confirm-label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 1rem;
   text-align: left;
+  font-size: 1.2rem;
 }
 
 #signup-form-name-input,
@@ -92,4 +118,5 @@
 #signup-form-submit-button {
   display: block;
   width: 100%;
+  font-size: 1.2rem;
 }

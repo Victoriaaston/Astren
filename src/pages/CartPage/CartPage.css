@@ -5,9 +5,10 @@
   margin: 2rem;
 }
 
-h1 {
+.cart {
   font-size: 2rem;
   margin-bottom: 1rem;
+  margin-top: -8px;
 }
 
 .product {
@@ -22,6 +23,11 @@ h1 {
   border: 1px solid #ddd;
   border-radius: 8px;
   box-sizing: border-box;
+}
+
+.product:hover {
+  transform: scale(1.05);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -97,7 +103,7 @@ h1 {
 }
 
 .delete-btn {
-  background-color: #738481;
+  background-color: #96abae;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -108,5 +114,5 @@ h1 {
 }
 
 .delete-btn:hover {
-  background-color: #96abae;
+  background-color:#738481;
 }
