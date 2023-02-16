@@ -8,7 +8,8 @@ export async function signUp(userData) {
 
 export async function login(credentials) {
     const token = await usersAPI.login(credentials)
-    localStorage.setItem('token', token)
+    localStorage.setItem('token', token.token)
+    localStorage.setItem('id', token.userId)
     return getUser()
 }
 

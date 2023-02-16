@@ -30,7 +30,7 @@ export function deleteItemFromCart(itemId) {
 //Checkout using stripe 
 export async function checkout() {
   try {
-    const response = await axios.post('/api/orders/cart/checkout');
+    const response = await axios.post('/api/orders/cart/checkout', {user: localStorage.getItem("id")});
     const sessionId = response.data
     return sessionId
   }
@@ -38,4 +38,4 @@ export async function checkout() {
     console.error(error);
   }
 }
-  
+   

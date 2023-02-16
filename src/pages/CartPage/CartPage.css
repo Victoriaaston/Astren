@@ -84,10 +84,6 @@
   padding: 1rem;
 }
 
-body {
-  background: linear-gradient(to bottom right, #F2F2F2, #DBDBDB, #EAEAEA );
-}
-
 button {
   border-radius: 5px;
 }

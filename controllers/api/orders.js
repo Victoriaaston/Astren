@@ -48,24 +48,30 @@ async function deleteItem(req, res) {
 }
 
 async function checkout(req, res) {
-  const cart = await Order.getCart();
-  const session = await stripe.checkout.sessions.create({
-    line_items: cart.lineItems.map(lineItem => {
-      return {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: lineItem.item.name,
-          },
-          unit_amount: lineItem.item.price * 100,
+  console.log(req.user)
+  const cart = await Order.getCart(req.user);
+  console.log(cart)
+  const items = cart.lineItems.map(lineItem => {
+    return {
+      price_data: {
+        currency: 'usd',
+        product_data: {
+          name: lineItem.item.name,
         },
-        quantity: lineItem.qty, 
-      };
-    }),
+        unit_amount: lineItem.item.price * 100,
+      },
+      quantity: lineItem.qty, 
+    }
+  })
+  console.log(items)
+  const session = await stripe.checkout.sessions.create({
+    line_items: 
+      [ items
+      ],
     mode: 'payment',
     success_url: 'http://localhost:3000/orders/success',
     cancel_url: 'http://localhost:3000/orders/new',
-  });
+  })
 
   res.status(200).send(session.url);
 };
