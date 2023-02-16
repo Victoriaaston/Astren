@@ -24,13 +24,13 @@ export default function NewOrderPage({ cart, setCart }) {
     getCart()
   }, []);
 
+  console.log("hello world")
 
   /*--- Event Handlers --- */
   async function handleAddToOrder(itemId) {
     const cart = await ordersAPI.addItemToCart(itemId)
     setCart(cart)
   }
-
   return (
     <>
       <h1>Shop All</h1>

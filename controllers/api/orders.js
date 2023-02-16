@@ -21,7 +21,8 @@ async function cart(req, res) {
 // Add an item to the cart
 async function addToCart(req, res) {
   const cart = await Order.getCart(req.user._id)
-  await cart.addItemToCart(req.params.id)
+  cart.addItemToCart(req.params.id)
+  console.log(cart.item)
   res.json(cart)
 }
 
@@ -51,7 +52,7 @@ async function checkout(req, res) {
   console.log(req.user)
   const cart = await Order.getCart(req.user);
   console.log(cart)
-  const items = cart.lineItems.map(lineItem => {
+  const items = await cart.lineItems.map(lineItem => {
     return {
       price_data: {
         currency: 'usd',
@@ -63,11 +64,10 @@ async function checkout(req, res) {
       quantity: lineItem.qty, 
     }
   })
+  console.log("hello World")
   console.log(items)
   const session = await stripe.checkout.sessions.create({
-    line_items: 
-      [ items
-      ],
+    line_items: items,
     mode: 'payment',
     success_url: 'http://localhost:3000/orders/success',
     cancel_url: 'http://localhost:3000/orders/new',

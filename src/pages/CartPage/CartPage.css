@@ -80,7 +80,7 @@ h1 {
 }
 
 #checkout-btn {
-  background-color: #007791;
+  background-color: #96abae;
   color: white;
   padding: 0.5rem 2rem;
   border: none;
@@ -90,5 +90,6 @@ h1 {
 }
 
 #checkout-btn:hover {
-  background-color: #005d6b;
+  background-color: #738481;
 }
+
