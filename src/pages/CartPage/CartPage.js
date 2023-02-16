@@ -1,9 +1,7 @@
 import './CartPage.css';
 import * as ordersAPI from "../../utilities/orders-api"
-import { useNavigate } from 'react-router-dom';
 
 export default function CartPage({ cart, setCart }) {
-    const navigate = useNavigate([]);
 
     /*--- Event Handlers --- */
     async function handleDeleteItem(itemId) {

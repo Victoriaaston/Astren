@@ -39,7 +39,4 @@ export async function checkout() {
   }
 }
 
-// export async function checkout() {
-//   return sendRequest(`${BASE_URL}/cart/checkout`, 'POST')
-// }
    

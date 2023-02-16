@@ -34,14 +34,6 @@ async function setItemQtyInCart(req, res) {
   res.json(cart);
 }
 
-// Update the cart's isPaid property to true
-// async function checkout(req, res) {
-//   const cart = await Order.getCart(req.user._id);
-//   cart.isPaid = true;
-//   await cart.save();
-//   res.json(cart);
-// }
-
 async function deleteItem(req, res) {
   const cart = await Order.getCart(req.user._id);
   await cart.deleteItemFromCart(req.params.id);
