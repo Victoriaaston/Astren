@@ -50,10 +50,8 @@ async function deleteItem(req, res) {
 }
 
 async function checkout(req, res) {
-  console.log(req.body.user)
   const cart = await Order.getCart(req.body.user);
   cart.isPaid = true;
-  console.log(cart)
   await cart.save();
   const tmp = []
   await cart.lineItems.forEach(lineItem => {
@@ -68,7 +66,6 @@ async function checkout(req, res) {
       quantity: lineItem.qty, 
     })
   })
-  console.log("these are the" + typeof [1, 2, 3])
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
     line_items: tmp,
@@ -76,7 +73,6 @@ async function checkout(req, res) {
     cancel_url: 'http://localhost:3000/orders/new',
     mode: "payment",
 });
-  console.log("this is ther session url" + session.url)
   res.status(200).send(session.url);
 };
 
