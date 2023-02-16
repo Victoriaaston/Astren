@@ -12,6 +12,7 @@ h1 {
 
 .product {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   width: 80%;
@@ -20,7 +21,9 @@ h1 {
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-radius: 8px;
+  box-sizing: border-box;
 }
+
 
 .product img {
   width: 30%;
@@ -93,3 +96,17 @@ h1 {
   background-color: #738481;
 }
 
+.delete-btn {
+  background-color: #738481;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.delete-btn:hover {
+  background-color: #96abae;
+}
