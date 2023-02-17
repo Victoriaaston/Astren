@@ -39,7 +39,7 @@ export default function NewOrderPage({ cart, setCart }) {
           <div className="item-card" id={`item-card-${item._id}`} key={item._id}>
             <img src={item.photo} />
             <p>{item.name}</p>
-            <p>{item.price}</p>
+            <p>${item.price}</p>
             <button id="add" onClick={() => handleAddToOrder(item._id)}> Add to Cart </button>
           </div>
         ))}
