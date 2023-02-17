@@ -37,9 +37,9 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-@media (min-width: 950px) {
+@media (min-width: 900px) {
     .home-page {
-        margin: 10%;
+        margin: 22%;
         margin-top: 50px;
     }
 }
