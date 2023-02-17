@@ -9,7 +9,9 @@ I built this app to support my friends and give them a platform to sell their ar
 - Express
 - Node.js 
 - MongoDB
+- Mongoose
 - Stripe API 
+- Heroku
 ## Photos
 #### Auth Page:
 
