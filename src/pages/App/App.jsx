@@ -22,6 +22,7 @@ export default function App() {
           <NavBar user={user} />
           <Routes>
             <Route path="/orders/new" element={<NewOrderPage cart={cart} setCart={setCart} />} />
+            <Route path="/" element={<NewOrderPage cart={cart} setCart={setCart} />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />}  />
             <Route path="/orders/success" element={<PaymentSuccessPage />} />
