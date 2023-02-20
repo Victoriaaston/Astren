@@ -1,7 +1,8 @@
 import sendRequest from './send-request';
 import axios from 'axios';
+const MongoClient = require('mongodb').MongoClient;
 
-const stripe = window.Stripe('pk_test_51MbSmyCwSUDU3KMADYQydQ7EpvUpxuTK8UwVkGo98OUD0q2OXr6HaOwcnUIcTSdYdYNwtSiVZJMNmgcnxd6MVVuk00lsg2Tqwv'); // replace with your Stripe API key
+const stripe = window.Stripe('pk_test_51MbSmyCwSUDU3KMADYQydQ7EpvUpxuTK8UwVkGo98OUD0q2OXr6HaOwcnUIcTSdYdYNwtSiVZJMNmgcnxd6MVVuk00lsg2Tqwv'); 
 const BASE_URL = '/api/orders';
 
 // Retrieve an unpaid order for the logged in user
