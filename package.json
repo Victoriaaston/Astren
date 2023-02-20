@@ -13,16 +13,16 @@
     "dotenv": "^16.0.3",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.9.0",
+    "mongoose": "^6.9.2",
     "morgan": "^1.10.0",
     "os": "^0.1.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0",
+    "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "serve-favicon": "^2.5.0",
     "stream-browserify": "^3.0.0",
-    "stripe": "^11.10.0",
+    "stripe": "^11.11.0",
     "web-vitals": "^2.1.4",
     "webpack": "^5.75.0"
   },
@@ -53,7 +53,6 @@
   "proxy": "http://localhost:3001",
   "description": "Welcome to Astren, a shop where creativity and passion come together! Astren is the creation of three lifelong friends who turned their hobby into a business.",
   "main": "crud-helper.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Victoriaaston/Astren.git"
