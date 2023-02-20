@@ -50,5 +50,19 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "description": "Welcome to Astren, a shop where creativity and passion come together! Astren is the creation of three lifelong friends who turned their hobby into a business.",
+  "main": "crud-helper.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victoriaaston/Astren.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Victoriaaston/Astren/issues"
+  },
+  "homepage": "https://github.com/Victoriaaston/Astren#readme"
 }
