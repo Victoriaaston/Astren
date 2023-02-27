@@ -1,4 +1,5 @@
 import './CartPage.css';
+import React from "react"
 import * as ordersAPI from "../../utilities/orders-api"
 
 export default function CartPage({ cart, setCart }) {

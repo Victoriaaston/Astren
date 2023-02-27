@@ -1,4 +1,5 @@
 import './App.css';
+import React from "react"
 import AuthPage from '../AuthPage/AuthPage';
 import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import PaymentSuccessPage from '../PaymentSuccessPage/PaymentSuccessPage';
